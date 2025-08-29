@@ -1,0 +1,238 @@
+:root {
+    --primary-blue: #007bff;
+    --dark-blue-bg: #2b395d;
+    --light-grey-bg: #f0f2f5;
+    --card-bg: #fff;
+    --text-color: #333;
+    --secondary-text: #666;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--light-grey-bg);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text-color);
+}
+
+/* Page Management */
+.page {
+    display: none;
+    width: 100%;
+    max-width: 900px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Welcome Screen */
+#welcome-page {
+    text-align: center;
+}
+
+#welcome-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#welcome-page p {
+    color: var(--secondary-text);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--light-grey-bg);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+#start-button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#start-button:hover {
+    background-color: #0056b3;
+}
+
+/* Chat Interface */
+#chat-page {
+    padding: 0;
+}
+
+.chat-header {
+    background-color: var(--dark-blue-bg);
+    color: white;
+    padding: 1rem 2rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.language-selector select {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.language-selector .arrow {
+    margin: 0 0.5rem;
+}
+
+.chat-container {
+    padding: 2rem;
+}
+
+.chat-messages {
+    min-height: 300px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: var(--light-grey-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+}
+
+.initial-prompt .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.initial-prompt p {
+    color: var(--secondary-text);
+}
+
+.chat-input-area {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+}
+
+#mic-button, #send-button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-info {
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    bottom: 0.5rem;
+    left: 2rem;
+}
+
+.sample-phrases {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.sample-phrases h4 {
+    margin: 0 0 1rem;
+    color: var(--secondary-text);
+}
+
+.phrases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.phrases-grid h5 {
+    margin: 0 0 0.5rem;
+}
+
+.phrases-grid ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.phrases-grid li {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    line-height: 1.5;
+}
